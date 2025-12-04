@@ -21,7 +21,13 @@ Route::middleware('auth')->group(function () {
         return view('task');
     })->name('task');
     Route::get('/projects', [ProjectController::class, 'index'])->name('project');
+    Route::get('/projects', [ProjectController::class, 'index'])->name('project');
+    Route::delete('/projects/delete', [ProjectController::class, 'delete'])->name('project');
     Route::post('/projects/store', [ProjectController::class, 'store'])->name('projects.store');
+    Route::get('/projects/{project}/edit', [ProjectController::class, 'edit'])->name('projects.edit');
+    Route::put('/projects/{project}', [ProjectController::class, 'update'])->name('projects.update');
+    Route::delete('/projects/{project}', [ProjectController::class, 'destroy'])->name('projects.destroy');
+
 
 });
 
